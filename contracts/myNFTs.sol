@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import "./ERC721A.sol";
 import "./Ownable.sol";
 
-contract BatchNFTs is ERC721A, Ownable {
+contract myNFTs is ERC721A, Ownable {
     uint256 public constant MAX_SUPPLY = 100;
     uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
     uint256 public immutable START_TIME;
@@ -14,7 +14,7 @@ contract BatchNFTs is ERC721A, Ownable {
     constructor(
         uint256 _startTime,
         bool _paused
-    ) ERC721A("ERC721A Token", "721AT") {
+    ) ERC721A("myToken", "mts") {
         START_TIME = _startTime;
         mintPaused = _paused;
     }
@@ -44,4 +44,8 @@ contract BatchNFTs is ERC721A, Ownable {
         require(!mintPaused, "Contract paused.");
         mintPaused = _paused;
     }
+     function promptDescription() public pure returns (string memory) {
+        return "revengeful studious guy working hard.";
+    }
+
 }
